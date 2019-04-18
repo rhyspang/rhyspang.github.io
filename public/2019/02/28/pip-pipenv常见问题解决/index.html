@@ -10,7 +10,7 @@
   
   <title>
     
-      Hello World | Rhys&#39; Blog
+      pip &amp; pipenv使用常见问题及解决办法(持续更新) | Rhys&#39; Blog
     
   </title>
   <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -138,8 +138,8 @@
 </header>
 
     <div id="article-banner">
-  <h2>Hello World</h2>
-  <p class="post-date">2018-12-30</p>
+  <h2>pip & pipenv使用常见问题及解决办法(持续更新)</h2>
+  <p class="post-date">2019-02-28</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
   </div>
@@ -147,16 +147,32 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>logo.png<br><img src="/images/pasted-0.png" alt="upload successful"></p>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+    <section class="markdown-content"><h3 id="使用pipenv-安装第三包失败"><a href="#使用pipenv-安装第三包失败" class="headerlink" title="使用pipenv 安装第三包失败"></a>使用pipenv 安装第三包失败</h3><p><strong>环境</strong>  </p>
+<ul>
+<li>os: mac os  </li>
+<li>python: 3.7</li>
+<li>pip: 18.1</li>
+</ul>
+<p><strong>错误提示</strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">lib/python3.7/site-packages/pipenv/utils.py", line 402, in resolve_deps</span><br><span class="line">    req_dir=req_dir</span><br><span class="line">  File "/usr/local/Cellar/pipenv/2018.7.1/libexec/lib/python3.7/site-packages/pipenv/utils.py", line 250, in actually_resolve_deps</span><br><span class="line">    req = Requirement.from_line(dep)</span><br><span class="line">  File "/usr/local/Cellar/pipenv/2018.7.1/libexec/lib/python3.7/site-packages/pipenv/vendor/requirementslib/models/requirements.py", line 704, in from_line</span><br><span class="line">    line, extras = _strip_extras(line)</span><br><span class="line">TypeError: 'module' object is not callable</span><br></pre></td></tr></table></figure></p>
+<p><strong>原因</strong><br>使用的pip版本过高，可能为开发版本    </p>
+<p><strong>解决方案</strong><br>降级pip至18.0版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip install pipenv</span><br><span class="line">pipenv run pip install pip==18.0</span><br><span class="line">pipenv install</span><br></pre></td></tr></table></figure></p>
+<p><strong>参考</strong>  </p>
+<ul>
+<li><a href="https://github.com/pypa/pipenv/issues/2871" target="_blank" rel="noopener">https://github.com/pypa/pipenv/issues/2871</a></li>
+</ul>
+<h3 id="pip-install提示locale-Error"><a href="#pip-install提示locale-Error" class="headerlink" title="pip install提示locale.Error"></a>pip install提示locale.Error</h3><p><strong>环境</strong> </p>
+<ul>
+<li>os: Mac</li>
+<li>python: 3</li>
+</ul>
+<p><strong>错误提示</strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ pip install virtualenv</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File "/usr/bin/pip", line 11, in &lt;module&gt;</span><br><span class="line">    sys.exit(main())</span><br><span class="line">  File "/usr/lib/python3.4/site-packages/pip/__init__.py", line 215, in main</span><br><span class="line">    locale.setlocale(locale.LC_ALL, '')</span><br><span class="line">  File "/usr/lib64/python3.4/locale.py", line 592, in setlocale</span><br><span class="line">    return _setlocale(category, locale)</span><br><span class="line">locale.Error: unsupported locale setting</span><br></pre></td></tr></table></figure></p>
+<p><strong>原因</strong><br>环境变量<code>LC_ALL</code>缺失或非法   </p>
+<p><strong>解决方案</strong><br>运行以下命令<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">export</span> LC_ALL=C</span></span><br></pre></td></tr></table></figure></p>
+<p>如果在新的shell中仍然报错，可以将命令写入到~/.bash_rc(bash)或者~/.zshrc(zsh)  </p>
+<p><strong>参考</strong>   </p>
+<ul>
+<li><a href="https://stackoverflow.com/a/36394262/10190375" target="_blank" rel="noopener">https://stackoverflow.com/a/36394262/10190375</a></li>
+</ul>
 </section>
     <!-- Tags START -->
     
@@ -166,10 +182,17 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-    
-      <a class="nav-right" href="/2019/02/28/pip-pipenv常见问题解决/">
+      <a class="nav-left" href="/2018/12/30/hello-world/">
+        <span class="nav-arrow">← </span>
         
-          pip &amp; pipenv使用常见问题及解决办法(持续更新)
+          Hello World
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2019/03/05/Linux常用命令笔记/">
+        
+          Linux常用命令笔记
         
         <span class="nav-arrow"> →</span>
       </a>
@@ -196,7 +219,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Quick-Start"><span class="toc-nav-text">Quick Start</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Create-a-new-post"><span class="toc-nav-text">Create a new post</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Run-server"><span class="toc-nav-text">Run server</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Generate-static-files"><span class="toc-nav-text">Generate static files</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Deploy-to-remote-sites"><span class="toc-nav-text">Deploy to remote sites</span></a></li></ol></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#使用pipenv-安装第三包失败"><span class="toc-nav-text">使用pipenv 安装第三包失败</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#pip-install提示locale-Error"><span class="toc-nav-text">pip install提示locale.Error</span></a></li></ol>
     
   </div>
 </aside>
@@ -206,7 +229,7 @@
 
 <script>
   (function () {
-    var url = 'https://rhyspang.github.io/2018/12/30/hello-world/';
+    var url = 'https://rhyspang.github.io/2019/02/28/pip-pipenv常见问题解决/';
     var banner = ''
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
@@ -262,7 +285,7 @@
     var gitmentConfig = "rhyspang";
     if (gitmentConfig !== 'undefined') {
       var gitment = new Gitment({
-        id: "Hello World",
+        id: "pip & pipenv使用常见问题及解决办法(持续更新)",
         owner: "rhyspang",
         repo: "rhyspang.github.io",
         oauth: {
@@ -290,7 +313,7 @@
 <script>
   var disqus_shortname = '';
   
-  var disqus_url = 'https://rhyspang.github.io/2018/12/30/hello-world/';
+  var disqus_url = 'https://rhyspang.github.io/2019/02/28/pip-pipenv常见问题解决/';
   
   (function(){
     var dsq = document.createElement('script');
