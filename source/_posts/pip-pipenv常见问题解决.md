@@ -64,3 +64,10 @@ $ export LC_ALL=C
 
 **参考**   
 - https://stackoverflow.com/a/36394262/10190375
+
+### pipenv 下载Python超时
+使用国内镜像源
+```
+v=3.6.8;wget http://npm.taobao.org/mirrors/python/$v/Python-$v.tar.xz -P ~/.pyenv/cache/;pyenv install $v 
+```
+将3.6.8改成需要的版本

@@ -1,8 +1,14 @@
 title: Linux常用命令笔记
 author: Rhys Pang
-date: 2019-03-05 14:46:49
 tags:
+  - Linux
+  - Tips
+categories:
+  - Linux
+date: 2019-03-05 14:46:00
 ---
+
+
 汇总工作中遇到的有用的Linux命令  
 
 ### 进程相关
