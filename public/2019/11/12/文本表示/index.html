@@ -10,7 +10,7 @@
   
   <title>
     
-      Linux常用命令笔记 | Rhys&#39; Blog
+      文本表示 | Rhys&#39; Blog
     
   </title>
   <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -138,8 +138,8 @@
 </header>
 
     <div id="article-banner">
-  <h2>Linux常用命令笔记</h2>
-  <p class="post-date">2019-03-05</p>
+  <h2>文本表示</h2>
+  <p class="post-date">2019-11-12</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
   </div>
@@ -147,31 +147,28 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><p>汇总工作中遇到的有用的Linux命令  </p>
-<h3 id="进程相关"><a href="#进程相关" class="headerlink" title="进程相关"></a>进程相关</h3><ul>
-<li>已知PID获取进程的工作目录，可以通过以下三种方式获取 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> pwdx &lt;PID&gt;</span><br><span class="line"><span class="meta">$</span> lsof -p &lt;PID&gt; | grep cwd</span><br><span class="line"><span class="meta">$</span> readlink -e /proc/&lt;PID&gt;/cwd</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="Vim相关"><a href="#Vim相关" class="headerlink" title="Vim相关"></a>Vim相关</h3><ul>
-<li>很多时候用户使用vim打开文件，经过一番修复，准备保存的时候提示无写入权限，这时不得不放弃修改退出后用sudo重新打开该文件。可以使用以下命令保存无写入权限的文件（当有sudo权限时）。<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> w !sudo tee %</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>该命令解释可以参考 <a href="https://stackoverflow.com/a/7078429/10190375" target="_blank" rel="noopener">https://stackoverflow.com/a/7078429/10190375</a></p>
-<h3 id="CUDA相关"><a href="#CUDA相关" class="headerlink" title="CUDA相关"></a>CUDA相关</h3><ul>
-<li>查看cuda版本<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/cuda/bin/nvcc --version</span><br></pre></td></tr></table></figure></li>
-</ul>
+    <section class="markdown-content"><h2 id="词袋模型"><a href="#词袋模型" class="headerlink" title="词袋模型"></a>词袋模型</h2><h3 id="概念介绍"><a href="#概念介绍" class="headerlink" title="概念介绍"></a>概念介绍</h3><p>引用Wikipedia的介绍</p>
+<blockquote>
+<p>词袋模型（英语：Bag-of-words model）是个在自然语言处理和信息检索(IR)下被简化的表达模型。此模型下，一段文本（比如一个句子或是一个文档）可以用一个装着这些词的袋子来表示，这种表示方式不考虑文法以及词的顺序。</p>
+</blockquote>
+<h3 id="计算方法"><a href="#计算方法" class="headerlink" title="计算方法"></a>计算方法</h3><p>对于两个句子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s1 = John likes to watch movies. Mary likes movies too.</span><br><span class="line">s2 = John also likes to watch football games.</span><br></pre></td></tr></table></figure></p>
+<p>首先统计出两个句子中的词的集合，即词典(vocabulary)：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[‘also’, ‘football’, ‘games’, ‘john’, ‘likes’, ‘mary’, ‘movies’, ‘to’, ‘too’, ‘watch’]</span><br></pre></td></tr></table></figure></p>
+<p>每个句子的词袋模型向量的维度就是词典中词的个数，每个维度的值是按照词典的词的顺序，计算词典中的词在句子中出现的次数。这个例子中，每个句子用10维的向量表示，第一个词是also，在第一个句子中出现的次数是0，所以第一维是0，词典中第5个词likes在第一个句子中出现的次数是2，第五维是2。由此得到两个句子的向量表示<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s1 = [0 0 0 1 2 1 2 1 1 1]</span><br><span class="line">s2 = [1 1 1 1 1 0 0 1 0 1]</span><br></pre></td></tr></table></figure></p>
+<p>可以使用scikit-learn计算词袋模型表示<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">corpus = [</span><br><span class="line">    &quot;John likes to watch movies, Mary likes movies too&quot;,</span><br><span class="line">    &quot;John also likes to watch football games&quot;,</span><br><span class="line">]</span><br><span class="line">vectorizer = CountVectorizer()</span><br><span class="line">X = vectorizer.fit_transform(corpus)</span><br><span class="line">print(&apos;vacubulary: &apos;, vectorizer.get_feature_names())</span><br><span class="line">print(X.toarray())</span><br><span class="line"></span><br><span class="line"># output:</span><br><span class="line"># vacubulary:  [&apos;also&apos;, &apos;football&apos;, &apos;games&apos;, &apos;john&apos;, &apos;likes&apos;, &apos;mary&apos;, &apos;movies&apos;, &apos;to&apos;, &apos;too&apos;, &apos;watch&apos;]</span><br><span class="line"># [[0 0 0 1 2 1 2 1 1 1]</span><br><span class="line">#  [1 1 1 1 1 0 0 1 0 1]]</span><br></pre></td></tr></table></figure></p>
+<h2 id="TF-IDF"><a href="#TF-IDF" class="headerlink" title="TF-IDF"></a>TF-IDF</h2><h3 id="概念介绍-1"><a href="#概念介绍-1" class="headerlink" title="概念介绍"></a>概念介绍</h3><blockquote>
+<p>tf-idf（英语：term frequency–inverse document frequency）是一种用于信息检索与文本挖掘的常用加权技术。tf-idf是一种统计方法，用以评估一字词对于一个文件集或一个语料库中的其中一份文件的重要程度。字词的重要性随着它在文件中出现的次数成正比增加，但同时会随着它在语料库中出现的频率成反比下降。tf-idf加权的各种形式常被搜索引擎应用，作为文件与用户查询之间相关程度的度量或评级。除了tf-idf以外，互联网上的搜索引擎还会使用基于链接分析的评级方法，以确定文件在搜索结果中出现的顺序。</p>
+</blockquote>
+<p>脱俗一点理解就是一个词如果在一个文档中出现的频次越多说明越重要，但这个词可能在整个语料库中也很常见，所以这个词要能体现这个文档的特征，不仅要在当前文档中出现频次多，还要在语料库中的其他文档里出现的频次少。</p>
+<h3 id="计算方法-1"><a href="#计算方法-1" class="headerlink" title="计算方法"></a>计算方法</h3><p>tf-idf值由两部分组成：词频（term frequency，tf）和逆向文件频率（inverse document frequency，idf）</p>
+<p>tf值是一个词在当前文档中出现的频次，词$w_i$的词频是:<br>$$<br>{\displaystyle \mathrm {tf_{i,j}} ={\frac {n_{i,j}}{\sum <em>{k}n</em>{k,j}}}}<br>$$<br>分子${\displaystyle n_{i,j}}$表示词$w_i$在文档${\displaystyle d_{j}}$中的出现次数，分母表示文档${\displaystyle d_{j}}$中每次词出现的次数之和，即该文档的总词数。<br>逆向文件频率（inverse document frequency，idf）是一个词语普遍重要性的度量。某一特定词语的idf，可以由总文件数目除以包含该词语之文件的数目，再将得到的商取以10为底的对数得到：<br>$$<br>{\displaystyle \mathrm {idf_{i}} =\lg {\frac {|D|}{|{j:t_{i}\in d_{j}}| + 1}}}<br>$$<br>分子$|D|$表示语料库中的文档总数，分母比表示包含词$w_i$的文档的个数，为了防止分母为0，给这个值加1。<br>tf-idf值为：<br>$$<br>{tfidf_{i,j} =\mathrm {tf_{i,j}} \times \mathrm {idf_{i}} }<br>$$</p>
 </section>
     <!-- Tags START -->
     
       <div class="tags">
         <span>Tags:</span>
         
-  <a href="/tags#Linux" >
-    <span class="tag-code">Linux</span>
-  </a>
-
-  <a href="/tags#Tips" >
-    <span class="tag-code">Tips</span>
+  <a href="/tags#nlp" >
+    <span class="tag-code">nlp</span>
   </a>
 
       </div>
@@ -182,20 +179,13 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/2019/02/28/pip-pipenv常见问题解决/">
+      <a class="nav-left" href="/2019/10/24/vue首屏加载效率优化/">
         <span class="nav-arrow">← </span>
         
-          pip &amp; pipenv使用常见问题及解决办法(持续更新)
+          vue首屏加载效率优化
         
       </a>
     
-    
-      <a class="nav-right" href="/2019/10/06/线性回归/">
-        
-          线性回归
-        
-        <span class="nav-arrow"> →</span>
-      </a>
     
   </div>
 
@@ -219,7 +209,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#进程相关"><span class="toc-nav-text">进程相关</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Vim相关"><span class="toc-nav-text">Vim相关</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#CUDA相关"><span class="toc-nav-text">CUDA相关</span></a></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#词袋模型"><span class="toc-nav-text">词袋模型</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#概念介绍"><span class="toc-nav-text">概念介绍</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#计算方法"><span class="toc-nav-text">计算方法</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#TF-IDF"><span class="toc-nav-text">TF-IDF</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#概念介绍-1"><span class="toc-nav-text">概念介绍</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#计算方法-1"><span class="toc-nav-text">计算方法</span></a></li></ol></li></ol>
     
   </div>
 </aside>
@@ -229,7 +219,7 @@
 
 <script>
   (function () {
-    var url = 'https://rhyspang.github.io/2019/03/05/Linux常用命令笔记/';
+    var url = 'https://rhyspang.github.io/2019/11/12/文本表示/';
     var banner = ''
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
@@ -285,7 +275,7 @@
     var gitmentConfig = "rhyspang";
     if (gitmentConfig !== 'undefined') {
       var gitment = new Gitment({
-        id: "Linux常用命令笔记",
+        id: "文本表示",
         owner: "rhyspang",
         repo: "rhyspang.github.io",
         oauth: {
@@ -313,7 +303,7 @@
 <script>
   var disqus_shortname = '';
   
-  var disqus_url = 'https://rhyspang.github.io/2019/03/05/Linux常用命令笔记/';
+  var disqus_url = 'https://rhyspang.github.io/2019/11/12/文本表示/';
   
   (function(){
     var dsq = document.createElement('script');

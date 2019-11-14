@@ -10,7 +10,7 @@
   
   <title>
     
-      Linux常用命令笔记 | Rhys&#39; Blog
+      vue首屏加载效率优化 | Rhys&#39; Blog
     
   </title>
   <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -138,8 +138,8 @@
 </header>
 
     <div id="article-banner">
-  <h2>Linux常用命令笔记</h2>
-  <p class="post-date">2019-03-05</p>
+  <h2>vue首屏加载效率优化</h2>
+  <p class="post-date">2019-10-24</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
   </div>
@@ -147,34 +147,20 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><p>汇总工作中遇到的有用的Linux命令  </p>
-<h3 id="进程相关"><a href="#进程相关" class="headerlink" title="进程相关"></a>进程相关</h3><ul>
-<li>已知PID获取进程的工作目录，可以通过以下三种方式获取 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> pwdx &lt;PID&gt;</span><br><span class="line"><span class="meta">$</span> lsof -p &lt;PID&gt; | grep cwd</span><br><span class="line"><span class="meta">$</span> readlink -e /proc/&lt;PID&gt;/cwd</span><br></pre></td></tr></table></figure>
+    <section class="markdown-content"><ul>
+<li><p>nginx 静态文件压缩</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gzip on;   # 打开gzip开关，默认为on</span><br><span class="line">gzip_min_length 1k; # 需要压缩的最小文件大小， 小于这个值的文件不压缩</span><br><span class="line">gzip_buffers 4 16k;</span><br><span class="line">gzip_types text/plain application/x-javascript text/css application/xml text/javascript application/x-httpd-php application/javascript;  # 需要压缩的文件类型， gzip 压缩文本文件效率较高</span><br><span class="line">gzip_vary off;</span><br></pre></td></tr></table></figure>
+<p><strong>gzip</strong><br>是否启用zip压缩<br><strong>gzip_min_length</strong><br>需要压缩的最小文件大小， 小于这个值的文件不压缩以减小压缩时占用的资源<br><strong>gzip buffers</strong><br>设置response响应的缓冲区大小。4 16k代表以16k为单位将响应数据以16k的4倍(64k)的大小申请内存。如果没有设置，缓冲区的大小默认为整个响应页面的大小。<br><strong>zip_types</strong><br>指定哪些类型的相应才启用gzip压缩，多个用空格分隔。通配符<code>*</code>可以匹配任意类型。不管是否指定<code>text/html</code>类型，该类型的响应总是启用压缩。一般js、css等文本文件都启用压缩。gzip对文本文件压缩比较高，对图像文件压缩比较低</p>
+<p><strong>gzip_comp_level</strong><br>gzip的压缩级别，可接受的范围是从1到9，数字越大压缩率越高，但更消耗CPU，一般设置6即可。</p>
 </li>
-</ul>
-<h3 id="Vim相关"><a href="#Vim相关" class="headerlink" title="Vim相关"></a>Vim相关</h3><ul>
-<li>很多时候用户使用vim打开文件，经过一番修复，准备保存的时候提示无写入权限，这时不得不放弃修改退出后用sudo重新打开该文件。可以使用以下命令保存无写入权限的文件（当有sudo权限时）。<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> w !sudo tee %</span><br></pre></td></tr></table></figure>
+<li><p>项目编译压缩</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">    configureWebpack: (config) =&gt; &#123;</span><br><span class="line">          if (process.env.NODE_ENV === &apos;production&apos;) &#123;</span><br><span class="line">              config.optimization.minimizer[0].options.terserOptions.compress.drop_console = true;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-</ul>
-<p>该命令解释可以参考 <a href="https://stackoverflow.com/a/7078429/10190375" target="_blank" rel="noopener">https://stackoverflow.com/a/7078429/10190375</a></p>
-<h3 id="CUDA相关"><a href="#CUDA相关" class="headerlink" title="CUDA相关"></a>CUDA相关</h3><ul>
-<li>查看cuda版本<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/cuda/bin/nvcc --version</span><br></pre></td></tr></table></figure></li>
+<li><p>第三方库导入优化<br>  使用懒加载导入组件和第三方库，减少首屏加载压力</p>
+</li>
 </ul>
 </section>
     <!-- Tags START -->
-    
-      <div class="tags">
-        <span>Tags:</span>
-        
-  <a href="/tags#Linux" >
-    <span class="tag-code">Linux</span>
-  </a>
-
-  <a href="/tags#Tips" >
-    <span class="tag-code">Tips</span>
-  </a>
-
-      </div>
     
     <!-- Tags END -->
     <!-- NAV START -->
@@ -182,17 +168,17 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/2019/02/28/pip-pipenv常见问题解决/">
+      <a class="nav-left" href="/2019/10/10/逻辑回归/">
         <span class="nav-arrow">← </span>
         
-          pip &amp; pipenv使用常见问题及解决办法(持续更新)
+          逻辑回归
         
       </a>
     
     
-      <a class="nav-right" href="/2019/10/06/线性回归/">
+      <a class="nav-right" href="/2019/11/12/文本表示/">
         
-          线性回归
+          文本表示
         
         <span class="nav-arrow"> →</span>
       </a>
@@ -219,7 +205,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#进程相关"><span class="toc-nav-text">进程相关</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Vim相关"><span class="toc-nav-text">Vim相关</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#CUDA相关"><span class="toc-nav-text">CUDA相关</span></a></li></ol>
+      <ol class="nav">none</ol>
     
   </div>
 </aside>
@@ -229,7 +215,7 @@
 
 <script>
   (function () {
-    var url = 'https://rhyspang.github.io/2019/03/05/Linux常用命令笔记/';
+    var url = 'https://rhyspang.github.io/2019/10/24/vue首屏加载效率优化/';
     var banner = ''
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
@@ -285,7 +271,7 @@
     var gitmentConfig = "rhyspang";
     if (gitmentConfig !== 'undefined') {
       var gitment = new Gitment({
-        id: "Linux常用命令笔记",
+        id: "vue首屏加载效率优化",
         owner: "rhyspang",
         repo: "rhyspang.github.io",
         oauth: {
@@ -313,7 +299,7 @@
 <script>
   var disqus_shortname = '';
   
-  var disqus_url = 'https://rhyspang.github.io/2019/03/05/Linux常用命令笔记/';
+  var disqus_url = 'https://rhyspang.github.io/2019/10/24/vue首屏加载效率优化/';
   
   (function(){
     var dsq = document.createElement('script');
