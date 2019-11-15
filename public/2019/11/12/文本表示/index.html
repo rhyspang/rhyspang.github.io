@@ -159,8 +159,12 @@
 <p>tf-idf（英语：term frequency–inverse document frequency）是一种用于信息检索与文本挖掘的常用加权技术。tf-idf是一种统计方法，用以评估一字词对于一个文件集或一个语料库中的其中一份文件的重要程度。字词的重要性随着它在文件中出现的次数成正比增加，但同时会随着它在语料库中出现的频率成反比下降。tf-idf加权的各种形式常被搜索引擎应用，作为文件与用户查询之间相关程度的度量或评级。除了tf-idf以外，互联网上的搜索引擎还会使用基于链接分析的评级方法，以确定文件在搜索结果中出现的顺序。</p>
 </blockquote>
 <p>脱俗一点理解就是一个词如果在一个文档中出现的频次越多说明越重要，但这个词可能在整个语料库中也很常见，所以这个词要能体现这个文档的特征，不仅要在当前文档中出现频次多，还要在语料库中的其他文档里出现的频次少。</p>
-<h3 id="计算方法-1"><a href="#计算方法-1" class="headerlink" title="计算方法"></a>计算方法</h3><p>tf-idf值由两部分组成：词频（term frequency，tf）和逆向文件频率（inverse document frequency，idf）</p>
-<p>tf值是一个词在当前文档中出现的频次，词$w_i$的词频是:<br>$$<br>{\displaystyle \mathrm {tf_{i,j}} ={\frac {n_{i,j}}{\sum <em>{k}n</em>{k,j}}}}<br>$$<br>分子${\displaystyle n_{i,j}}$表示词$w_i$在文档${\displaystyle d_{j}}$中的出现次数，分母表示文档${\displaystyle d_{j}}$中每次词出现的次数之和，即该文档的总词数。<br>逆向文件频率（inverse document frequency，idf）是一个词语普遍重要性的度量。某一特定词语的idf，可以由总文件数目除以包含该词语之文件的数目，再将得到的商取以10为底的对数得到：<br>$$<br>{\displaystyle \mathrm {idf_{i}} =\lg {\frac {|D|}{|{j:t_{i}\in d_{j}}| + 1}}}<br>$$<br>分子$|D|$表示语料库中的文档总数，分母比表示包含词$w_i$的文档的个数，为了防止分母为0，给这个值加1。<br>tf-idf值为：<br>$$<br>{tfidf_{i,j} =\mathrm {tf_{i,j}} \times \mathrm {idf_{i}} }<br>$$</p>
+<h3 id="计算方法-1"><a href="#计算方法-1" class="headerlink" title="计算方法"></a>计算方法</h3><p>tf-idf值由两部分组成：词频（term frequency，tf）和逆向文件频率（inverse document frequency，idf）<br>tf值是一个词在当前文档中出现的频次，词$w_i$的词频是:</p>
+<p>$$<br>{\displaystyle \mathrm {tf_{i,j}} ={\frac {n_{i,j}}{\sum_{k}n_{k,j}}}}<br>$$</p>
+<p>分子${\displaystyle n_{i,j}}$表示词$w_i$在文档${\displaystyle d_{j}}$中的出现次数，分母表示文档${\displaystyle d_{j}}$中每次词出现的次数之和，即该文档的总词数。<br>逆向文件频率（inverse document frequency，idf）是一个词语普遍重要性的度量。某一特定词语的idf，可以由总文件数目除以包含该词语之文件的数目，再将得到的商取以10为底的对数得到：</p>
+<p>$$<br>{\displaystyle \mathrm {idf_{i}} =\lg {\frac {|D|}{|{j:t_{i}\in d_{j}}| + 1}}}<br>$$</p>
+<p>分子$|D|$表示语料库中的文档总数，分母比表示包含词$w_i$的文档的个数，为了防止分母为0，给这个值加1。<br>tf-idf值为：</p>
+<p>$$<br>{tfidf_{i,j} =\mathrm {tf_{i,j}} \times \mathrm {idf_{i}} }<br>$$</p>
 </section>
     <!-- Tags START -->
     
@@ -186,6 +190,13 @@
         
       </a>
     
+    
+      <a class="nav-right" href="/2019/11/15/常用效率工具列表/">
+        
+          常用效率工具列表
+        
+        <span class="nav-arrow"> →</span>
+      </a>
     
   </div>
 

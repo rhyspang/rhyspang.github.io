@@ -10,7 +10,7 @@
   
   <title>
     
-      Linux常用命令笔记 | Rhys&#39; Blog
+      常用效率工具列表 | Rhys&#39; Blog
     
   </title>
   <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -138,8 +138,8 @@
 </header>
 
     <div id="article-banner">
-  <h2>Linux常用命令笔记</h2>
-  <p class="post-date">2019-03-05</p>
+  <h2>常用效率工具列表</h2>
+  <p class="post-date">2019-11-15</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
   </div>
@@ -147,34 +147,26 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><p>汇总工作中遇到的有用的Linux命令  </p>
-<h3 id="进程相关"><a href="#进程相关" class="headerlink" title="进程相关"></a>进程相关</h3><ul>
-<li>已知PID获取进程的工作目录，可以通过以下三种方式获取 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> pwdx &lt;PID&gt;</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> lsof -p &lt;PID&gt; | grep cwd</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> readlink -e /proc/&lt;PID&gt;/cwd</span></span><br></pre></td></tr></table></figure>
+    <section class="markdown-content"><h2 id="ZSH"><a href="#ZSH" class="headerlink" title="ZSH"></a>ZSH</h2><p>使用发行版 oh-my-zsh</p>
+<h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sh -c &quot;$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)&quot;</span><br><span class="line"># 或者</span><br><span class="line">sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="TMUX"><a href="#TMUX" class="headerlink" title="TMUX"></a>TMUX</h2><p>窗口管理工具，使用发行版配置 oh-my-tmux</p>
+<h5 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h5><ul>
+<li><p>tmux 安装<br>最新版本推荐使用源码安装，地址<a href="https://github.com/tmux/tmux" target="_blank" rel="noopener">https://github.com/tmux/tmux</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./configure &amp;&amp; make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>tmux配置安装<br><a href="https://github.com/gpakosz/.tmux" target="_blank" rel="noopener">https://github.com/gpakosz/.tmux</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ cd</span><br><span class="line">$ git clone https://github.com/gpakosz/.tmux.git</span><br><span class="line">$ ln -s -f .tmux/.tmux.conf</span><br><span class="line">$ cp .tmux/.tmux.conf.local .</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="Vim相关"><a href="#Vim相关" class="headerlink" title="Vim相关"></a>Vim相关</h3><ul>
-<li>很多时候用户使用vim打开文件，经过一番修复，准备保存的时候提示无写入权限，这时不得不放弃修改退出后用sudo重新打开该文件。可以使用以下命令保存无写入权限的文件（当有sudo权限时）。<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> w !sudo tee %</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>该命令解释可以参考 <a href="https://stackoverflow.com/a/7078429/10190375" target="_blank" rel="noopener">https://stackoverflow.com/a/7078429/10190375</a></p>
-<h3 id="CUDA相关"><a href="#CUDA相关" class="headerlink" title="CUDA相关"></a>CUDA相关</h3><ul>
-<li>查看cuda版本<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/cuda/bin/nvcc --version</span><br></pre></td></tr></table></figure></li>
+<h2 id="VIM"><a href="#VIM" class="headerlink" title="VIM"></a>VIM</h2><p>使用spf13-vim，地址<a href="https://github.com/spf13/spf13-vim" target="_blank" rel="noopener">https://github.com/spf13/spf13-vim</a></p>
+<h5 id="安装-2"><a href="#安装-2" class="headerlink" title="安装"></a>安装</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh &lt;(curl https://j.mp/spf13-vim3 -L)</span><br></pre></td></tr></table></figure>
+<h2 id="PYENV"><a href="#PYENV" class="headerlink" title="PYENV"></a>PYENV</h2><p>python 版本管理工具</p>
+<h5 id="安装-3"><a href="#安装-3" class="headerlink" title="安装"></a>安装</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https://pyenv.run | bash</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用pyenv安装Python时常见编译错误及解决办法 <a href="https://github.com/pyenv/pyenv/wiki/common-build-problems" target="_blank" rel="noopener">https://github.com/pyenv/pyenv/wiki/common-build-problems</a></li>
 </ul>
 </section>
     <!-- Tags START -->
-    
-      <div class="tags">
-        <span>Tags:</span>
-        
-  <a href="/tags#Linux" >
-    <span class="tag-code">Linux</span>
-  </a>
-
-  <a href="/tags#Tips" >
-    <span class="tag-code">Tips</span>
-  </a>
-
-      </div>
     
     <!-- Tags END -->
     <!-- NAV START -->
@@ -182,20 +174,13 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/2019/02/28/pip-pipenv常见问题解决/">
+      <a class="nav-left" href="/2019/11/12/文本表示/">
         <span class="nav-arrow">← </span>
         
-          pip &amp; pipenv使用常见问题及解决办法(持续更新)
+          文本表示
         
       </a>
     
-    
-      <a class="nav-right" href="/2019/10/06/线性回归/">
-        
-          线性回归
-        
-        <span class="nav-arrow"> →</span>
-      </a>
     
   </div>
 
@@ -219,7 +204,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#进程相关"><span class="toc-nav-text">进程相关</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Vim相关"><span class="toc-nav-text">Vim相关</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#CUDA相关"><span class="toc-nav-text">CUDA相关</span></a></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#ZSH"><span class="toc-nav-text">ZSH</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#安装"><span class="toc-nav-text">安装</span></a></li></ol></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#TMUX"><span class="toc-nav-text">TMUX</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#安装-1"><span class="toc-nav-text">安装</span></a></li></ol></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#VIM"><span class="toc-nav-text">VIM</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#安装-2"><span class="toc-nav-text">安装</span></a></li></ol></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#PYENV"><span class="toc-nav-text">PYENV</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#安装-3"><span class="toc-nav-text">安装</span></a></li></ol></li></ol></li></ol></li></ol>
     
   </div>
 </aside>
@@ -229,7 +214,7 @@
 
 <script>
   (function () {
-    var url = 'https://rhyspang.github.io/2019/03/05/Linux常用命令笔记/';
+    var url = 'https://rhyspang.github.io/2019/11/15/常用效率工具列表/';
     var banner = ''
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
@@ -285,7 +270,7 @@
     var gitmentConfig = "rhyspang";
     if (gitmentConfig !== 'undefined') {
       var gitment = new Gitment({
-        id: "Linux常用命令笔记",
+        id: "常用效率工具列表",
         owner: "rhyspang",
         repo: "rhyspang.github.io",
         oauth: {
@@ -313,7 +298,7 @@
 <script>
   var disqus_shortname = '';
   
-  var disqus_url = 'https://rhyspang.github.io/2019/03/05/Linux常用命令笔记/';
+  var disqus_url = 'https://rhyspang.github.io/2019/11/15/常用效率工具列表/';
   
   (function(){
     var dsq = document.createElement('script');
