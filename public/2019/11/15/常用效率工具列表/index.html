@@ -151,17 +151,14 @@
 <h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sh -c &quot;$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)&quot;</span><br><span class="line"># 或者</span><br><span class="line">sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</span><br></pre></td></tr></table></figure>
 <h2 id="TMUX"><a href="#TMUX" class="headerlink" title="TMUX"></a>TMUX</h2><p>窗口管理工具，使用发行版配置 oh-my-tmux</p>
 <h5 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h5><ul>
-<li><p>tmux 安装<br>最新版本推荐使用源码安装，地址<a href="https://github.com/tmux/tmux" target="_blank" rel="noopener">https://github.com/tmux/tmux</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./configure &amp;&amp; make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>tmux配置安装<br><a href="https://github.com/gpakosz/.tmux" target="_blank" rel="noopener">https://github.com/gpakosz/.tmux</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ cd</span><br><span class="line">$ git clone https://github.com/gpakosz/.tmux.git</span><br><span class="line">$ ln -s -f .tmux/.tmux.conf</span><br><span class="line">$ cp .tmux/.tmux.conf.local .</span><br></pre></td></tr></table></figure>
-</li>
+<li>tmux 安装<br>最新版本推荐使用源码安装，地址<a href="https://github.com/tmux/tmux/releases" target="_blank" rel="noopener">https://github.com/tmux/tmux/releases</a></li>
 </ul>
-<h2 id="VIM"><a href="#VIM" class="headerlink" title="VIM"></a>VIM</h2><p>使用spf13-vim，地址<a href="https://github.com/spf13/spf13-vim" target="_blank" rel="noopener">https://github.com/spf13/spf13-vim</a></p>
-<h5 id="安装-2"><a href="#安装-2" class="headerlink" title="安装"></a>安装</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh &lt;(curl https://j.mp/spf13-vim3 -L)</span><br></pre></td></tr></table></figure>
-<h2 id="PYENV"><a href="#PYENV" class="headerlink" title="PYENV"></a>PYENV</h2><p>python 版本管理工具</p>
-<h5 id="安装-3"><a href="#安装-3" class="headerlink" title="安装"></a>安装</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https://pyenv.run | bash</span><br></pre></td></tr></table></figure>
+<p>可能需要的依赖</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># centos</span></span><br><span class="line">sudo yum install automake</span><br><span class="line">sudo yum install libevent-devel</span><br><span class="line">sudo yum install ncurses-devel</span><br><span class="line"></span><br><span class="line"><span class="comment"># ubuntu</span></span><br><span class="line">sudo apt install libevent-dev</span><br><span class="line">sudo apt-get install ncurses-dev</span><br><span class="line"></span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+<p>./autogen.sh<br>./configure &amp;&amp; make<br>sudo make install<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- tmux配置安装</span><br><span class="line">https://github.com/gpakosz/.tmux</span><br></pre></td></tr></table></figure></p>
+<p>$ cd<br>$ git clone <a href="https://github.com/gpakosz/.tmux.git" target="_blank" rel="noopener">https://github.com/gpakosz/.tmux.git</a><br>$ ln -s -f .tmux/.tmux.conf<br>$ cp .tmux/.tmux.conf.local .<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## VIM</span><br><span class="line">使用spf13-vim，地址https://github.com/spf13/spf13-vim</span><br><span class="line"></span><br><span class="line">##### 安装</span><br></pre></td></tr></table></figure></p>
+<p>sh &lt;(curl <a href="https://j.mp/spf13-vim3" target="_blank" rel="noopener">https://j.mp/spf13-vim3</a> -L)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## PYENV</span><br><span class="line">python 版本管理工具</span><br><span class="line">##### 安装</span><br></pre></td></tr></table></figure></p>
+<p>curl <a href="https://pyenv.run" target="_blank" rel="noopener">https://pyenv.run</a> | bash<br><code>`</code></p>
 <ul>
 <li>使用pyenv安装Python时常见编译错误及解决办法 <a href="https://github.com/pyenv/pyenv/wiki/common-build-problems" target="_blank" rel="noopener">https://github.com/pyenv/pyenv/wiki/common-build-problems</a></li>
 </ul>
@@ -181,6 +178,13 @@
         
       </a>
     
+    
+      <a class="nav-right" href="/2019/11/16/极大似如估计/">
+        
+          高斯分布
+        
+        <span class="nav-arrow"> →</span>
+      </a>
     
   </div>
 
@@ -204,7 +208,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#ZSH"><span class="toc-nav-text">ZSH</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#安装"><span class="toc-nav-text">安装</span></a></li></ol></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#TMUX"><span class="toc-nav-text">TMUX</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#安装-1"><span class="toc-nav-text">安装</span></a></li></ol></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#VIM"><span class="toc-nav-text">VIM</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#安装-2"><span class="toc-nav-text">安装</span></a></li></ol></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#PYENV"><span class="toc-nav-text">PYENV</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#安装-3"><span class="toc-nav-text">安装</span></a></li></ol></li></ol></li></ol></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#ZSH"><span class="toc-nav-text">ZSH</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#安装"><span class="toc-nav-text">安装</span></a></li></ol></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#TMUX"><span class="toc-nav-text">TMUX</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#安装-1"><span class="toc-nav-text">安装</span></a></li></ol></li></ol></li></ol></li></ol>
     
   </div>
 </aside>
@@ -314,7 +318,7 @@
 </div>
     <footer class="app-footer">
   <p class="copyright">
-    &copy; 2019 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    &copy; 2020 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
     <br>
     Theme by <a href="https://github.com/yanm1ng">yanm1ng</a>
   </p>
