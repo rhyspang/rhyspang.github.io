@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Rhys&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      Rhys&#39; Blog
+    
+  </title>
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/plugins/gitment.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+  <script src="/js/qrious.js"></script>
+<script src="/js/gitment.js"></script>
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png">
+</div>
+
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>Rhys' Blog</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link active">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link mobile-active">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <main class="app-body">
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2020/12/03/修改Git提交历史/">修改Git提交历史</a>
+      </h2>
+      <p class="article-date">December 3, 2020</p>
+      
+      <div class="article-summary">
+        
+          在日常提交中，可能会遇到需要修改Git所有提交人和邮箱信息的需求，可以用以下脚本完成。   
+1234567891011121314151617#!/bin/shgit filter-branch --env-filter 'OLD_EMAIL="your-old-email@example ...
+        
+      </div>
+      <a class="more" href="/2020/12/03/修改Git提交历史/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2020/12/03/Shell-Script-Pipeline/">Shell Script Pipeline</a>
+      </h2>
+      <p class="article-date">December 3, 2020</p>
+      
+      <div class="article-summary">
+        
+          最近在工作中经常会遇到任务流控制相关的任务，总结一套shell 任务流控制的脚本模板12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565 ...
+        
+      </div>
+      <a class="more" href="/2020/12/03/Shell-Script-Pipeline/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2020/05/22/Git实用命令总结/">Git实用命令总结</a>
+      </h2>
+      <p class="article-date">May 22, 2020</p>
+      
+      <div class="article-summary">
+        
+          从一个分支拷贝提交到当前分支
+将ID为commit_id 的提交应用到当前分支
+1git cherry-pick &lt;commit-id&gt;
+
+将从A到B的提交应用到当前分支 (A比B先提交)
+12git cherry-pick A^..B  # 包含Agit cherry-pick ...
+        
+      </div>
+      <a class="more" href="/2020/05/22/Git实用命令总结/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2020/01/17/python/">python代码保护</a>
+      </h2>
+      <p class="article-date">January 17, 2020</p>
+      
+      <div class="article-summary">
+        
+          python源码保护  对于编译型语言，比如C、C++、go等来说，从源码到可执行文件往往要经过编译、链接等阶段将源码转化可执行程序，可执行程序是二进制的机器语言文件。发布程序的时候将可执行程序发布，不会涉及到源码，外界也很难将二进制程序通过逆向工程得到源码。  Python执行时会首先将源 ...
+        
+      </div>
+      <a class="more" href="/2020/01/17/python/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/12/16/tensorflow2.0踩坑记/">tensorflow2.0踩坑记</a>
+      </h2>
+      <p class="article-date">December 16, 2019</p>
+      
+      <div class="article-summary">
+        
+          记录使用TensorFlow2.0遇到的问题和解决办法Resource not Exist描述自定义tf keras层继承自tf.keras.layers.Layer，自定义模型继承自tf.keras.Model，训练使用model.fit，报错
+12tensorflow.python.fr ...
+        
+      </div>
+      <a class="more" href="/2019/12/16/tensorflow2.0踩坑记/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/11/25/tensorflow-对照表/">tensorflow 对照表</a>
+      </h2>
+      <p class="article-date">November 25, 2019</p>
+      
+      <div class="article-summary">
+        
+          https://www.tensorflow.org/install/source#tested_build_configurations
+
+        
+      </div>
+      <a class="more" href="/2019/11/25/tensorflow-对照表/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/11/21/数学基础概念/">数学基础概念</a>
+      </h2>
+      <p class="article-date">November 21, 2019</p>
+      
+      <div class="article-summary">
+        
+          协方差协方差（Covariance）在概率论和统计学中用于衡量两个变量的总体误差。随机变量X和Y的协方差为$${\displaystyle \operatorname {cov} (X,Y)=\operatorname {E} ((X-\mu )(Y-\nu ))=\operatorname ...
+        
+      </div>
+      <a class="more" href="/2019/11/21/数学基础概念/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/11/16/极大似如估计/">高斯分布</a>
+      </h2>
+      <p class="article-date">November 16, 2019</p>
+      
+        
+  <a href="/tags#数学基础" >
+    <span class="tag-code">数学基础</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          假设数据集$X = (\chi_1, \chi_2, …,\chi_N)^T $，该数据集有N个数据样本，每个数据样本$\chi_i$是一个p维向量，$\chi_i \in R^p$。数据服从一维高斯分布，
+$$\chi_i \sim N(\mu, \sigma)$$
+参数$\theta$是 ...
+        
+      </div>
+      <a class="more" href="/2019/11/16/极大似如估计/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/11/15/常用效率工具列表/">常用效率工具列表</a>
+      </h2>
+      <p class="article-date">November 15, 2019</p>
+      
+      <div class="article-summary">
+        
+          ZSH使用发行版 oh-my-zsh
+安装123sh -c &quot;$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)&quot;# 或者sh -c &quot;$(curl ...
+        
+      </div>
+      <a class="more" href="/2019/11/15/常用效率工具列表/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/11/12/文本表示/">文本表示</a>
+      </h2>
+      <p class="article-date">November 12, 2019</p>
+      
+        
+  <a href="/tags#nlp" >
+    <span class="tag-code">nlp</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          词袋模型概念介绍引用Wikipedia的介绍
+
+词袋模型（英语：Bag-of-words model）是个在自然语言处理和信息检索(IR)下被简化的表达模型。此模型下，一段文本（比如一个句子或是一个文档）可以用一个装着这些词的袋子来表示，这种表示方式不考虑文法以及词的顺序。
+
+计算方法对于两 ...
+        
+      </div>
+      <a class="more" href="/2019/11/12/文本表示/">Read more</a>
+    </article>
+  
+
+  
+    <div class="guide-pager">
+  
+    <a class="unvisible" href="/"><span class="page-arrow">←</span> Prev</a>
+  
+  
+    <a href="/page/2/">Next<span class="page-arrow"> →</span></a>
+  
+</div>
+  
+</main>
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2020 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+    Theme by <a href="https://github.com/yanm1ng">yanm1ng</a>
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+  </body>
+</html>
