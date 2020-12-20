@@ -3,3 +3,4 @@ _drafts/
 .DS_Store
 .idea/
 node_modules/
+rewrite_his.sh
