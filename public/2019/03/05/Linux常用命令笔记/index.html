@@ -149,19 +149,11 @@
   <article class="post-article">
     <section class="markdown-content"><p>汇总工作中遇到的有用的Linux命令  </p>
 <h3 id="进程相关"><a href="#进程相关" class="headerlink" title="进程相关"></a>进程相关</h3><ul>
-<<<<<<< HEAD
 <li>已知PID获取进程的工作目录，可以通过以下三种方式获取 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> pwdx &lt;PID&gt;</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> lsof -p &lt;PID&gt; | grep cwd</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> readlink -e /proc/&lt;PID&gt;/cwd</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="Vim相关"><a href="#Vim相关" class="headerlink" title="Vim相关"></a>Vim相关</h3><ul>
 <li>很多时候用户使用vim打开文件，经过一番修复，准备保存的时候提示无写入权限，这时不得不放弃修改退出后用sudo重新打开该文件。可以使用以下命令保存无写入权限的文件（当有sudo权限时）。<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> w !sudo tee %</span></span><br></pre></td></tr></table></figure>
-=======
-<li>已知PID获取进程的工作目录，可以通过以下三种方式获取 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> pwdx &lt;PID&gt;</span><br><span class="line"><span class="meta">$</span> lsof -p &lt;PID&gt; | grep cwd</span><br><span class="line"><span class="meta">$</span> readlink -e /proc/&lt;PID&gt;/cwd</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="Vim相关"><a href="#Vim相关" class="headerlink" title="Vim相关"></a>Vim相关</h3><ul>
-<li>很多时候用户使用vim打开文件，经过一番修复，准备保存的时候提示无写入权限，这时不得不放弃修改退出后用sudo重新打开该文件。可以使用以下命令保存无写入权限的文件（当有sudo权限时）。<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> w !sudo tee %</span><br></pre></td></tr></table></figure>
->>>>>>> 7402cf68da638fb4a0d011b3758bd61302edeb3f
 </li>
 </ul>
 <p>该命令解释可以参考 <a href="https://stackoverflow.com/a/7078429/10190375" target="_blank" rel="noopener">https://stackoverflow.com/a/7078429/10190375</a></p>
